@@ -1041,10 +1041,10 @@ int main(int argc, char ** argv) {
                 bool another_line=true;
                 while (another_line) {
                     fflush(stdout);
-                    char buf[32768] = {0};
+                    char buf[4096] = {0};
                     int n_read;
                     if(params.use_color) printf(ANSI_BOLD ANSI_COLOR_GREEN);
-                    if (scanf("%32767[^\n]%n%*c", buf, &n_read) <= 0) {
+                    if (scanf("%4050[^\n]%n%*c", buf, &n_read) <= 0) {
                         // presumable empty line, consume the newline
                         if (scanf("%*c") <= 0) { /*ignore*/ }
                         n_read=0;
